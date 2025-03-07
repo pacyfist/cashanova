@@ -1,11 +1,24 @@
 <main class="main">
-  <div class="flex flex-col justify-center items-center p-16">
-    <h1 class="text-3xl underline text-amber-700 mt-10">Hello world from Tailwind</h1>
-    <div class="btn btn-primary mt-5">Hello world from DaisyUI</div>
+  <div class="flex flex-wrap justify-center items-center">
+
 
     @for(rate of this.rates(); track rate.code)
     {
-    {{rate.code}}
+    <div class="card bg-base-100 w-xs shadow-sm m-4">
+      <figure>
+
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{{rate.currency | titlecase }}</h2>
+        <div class="flex justify-evenly items-center"><img src="https://flagsapi.com/PL/shiny/64.png" alt="PL" />
+          <img src="https://flagsapi.com/PL/shiny/64.png" alt="PL" />
+        </div>
+        <p class="mx-auto"> 1 {{rate.code}} = {{rate.mid}} PLN</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">Stuff</button>
+        </div>
+      </div>
+    </div>
     }
 
   </div>
