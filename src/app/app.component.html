@@ -6,13 +6,20 @@
     {
     <div class="card bg-base-100 w-xs shadow-sm m-4">
       <figure>
-
+        <div class="flex">
+          @if (rate.code == 'EUR')
+          {
+          <img src="https://flagcdn.com/w160/eu.png" alt="EU" />
+          }
+          @else
+          {
+          <img src="https://flagcdn.com/w160/gb.png" alt="EU" />
+          }
+          <img src="https://flagcdn.com/w160/pl.png" alt="PL" />
+        </div>
       </figure>
       <div class="card-body">
         <h2 class="card-title">{{rate.currency | titlecase }}</h2>
-        <div class="flex justify-evenly items-center"><img src="https://flagsapi.com/PL/shiny/64.png" alt="PL" />
-          <img src="https://flagsapi.com/PL/shiny/64.png" alt="PL" />
-        </div>
         <p class="mx-auto"> 1 {{rate.code}} = {{rate.mid}} PLN</p>
         <div class="card-actions justify-end">
           <button class="btn btn-primary">Stuff</button>
