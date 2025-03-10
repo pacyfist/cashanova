@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href /cashanowa/
+        run: npm run build -- --base-href /cashanova/
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
