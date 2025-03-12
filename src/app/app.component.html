@@ -1,32 +1,35 @@
 <main>
   <div class="bg-pink-900 pt-10">
-    <div class="max-w-6xl mx-auto flex flex-wrap justify-center items-center bg-white/30 backdrop-blur-sm">
-      @for(rate of this.rates(); track rate.code)
-      {
-      <div class="card bg-base-100 w-xs shadow-sm m-4">
-        <figure>
-          <div class="flex">
-            @if (rate.code == 'EUR')
-            {
-            <img src="https://flagcdn.com/w160/eu.png" alt="EU" />
-            }
-            @else
-            {
-            <img src="https://flagcdn.com/w160/gb.png" alt="EU" />
-            }
-            <img src="https://flagcdn.com/w160/pl.png" alt="PL" />
-          </div>
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">{{rate.currency | titlecase }}</h2>
-          <p class="mx-auto"> 1 {{rate.code}} = {{rate.mid}} PLN</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Stuff</button>
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center bg-white/30 backdrop-blur-sm">
+      @for (rate of this.rates(); track rate.code) {
+        <div class="card bg-base-100 m-4 w-xs shadow-sm">
+          <figure>
+            <div class="flex">
+              @if (rate.code == "EUR") {
+                <img src="https://flagcdn.com/w160/eu.png" alt="EU" />
+              } @else {
+                <img src="https://flagcdn.com/w160/gb.png" alt="EU" />
+              }
+              <img src="https://flagcdn.com/w160/pl.png" alt="PL" />
+            </div>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">
+              {{ rate.currency | titlecase }}
+            </h2>
+            <p class="mx-auto">
+              1
+              {{ rate.code }}
+              =
+              {{ rate.mid }}
+              PLN
+            </p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Stuff</button>
+            </div>
           </div>
         </div>
-      </div>
       }
-
     </div>
   </div>
 </main>
