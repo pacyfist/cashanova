@@ -1,34 +1,52 @@
 <main>
-  <div class="bg-pink-900 pt-10">
-    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center bg-white/30 backdrop-blur-sm">
+  <div class="bg-black">
+    <div class="navbar rounded-t-2xl bg-gray-300  justify-around justify-items-center">
+      <span class="w-xs overflow-hidden">
+        <a class="link no-underline font-bold text-3xl text-secondary">$ Cashanova</a>
+      </span>
+      <label class="input rounded-2xl  w-xs  text-secondary">
+        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </g>
+        </svg>
+        <input type="search" placeholder="Search currencies" />
+      </label>
+      <span class="w-xs overflow-hidden flex justify-end  text-secondary">
+        <a class="link no-underline font-bold text-3xl">☰</a>
+      </span>
+
+    </div>
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center">
       @for (rate of this.rates(); track rate.code) {
-        <div class="card bg-base-100 m-4 w-xs shadow-sm">
-          <figure>
-            <div class="flex">
-              @if (rate.code == "EUR") {
-                <img src="https://flagcdn.com/w160/eu.png" alt="EU" />
-              } @else {
-                <img src="https://flagcdn.com/w160/gb.png" alt="EU" />
-              }
-              <img src="https://flagcdn.com/w160/pl.png" alt="PL" />
-            </div>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">
-              {{ rate.currency | titlecase }}
-            </h2>
-            <p class="mx-auto">
-              1
-              {{ rate.code }}
-              =
-              {{ rate.mid }}
-              PLN
-            </p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Stuff</button>
-            </div>
+      <div class="card bg-base-100 m-4 w-xs shadow-sm">
+        <figure>
+          <div class="flex">
+            @if (rate.code == "EUR") {
+            <img src="https://flagcdn.com/w160/eu.png" alt="EU" />
+            } @else {
+            <img src="https://flagcdn.com/w160/gb.png" alt="EU" />
+            }
+            <img src="https://flagcdn.com/w160/pl.png" alt="PL" />
+          </div>
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">
+            {{ rate.currency | titlecase }}
+          </h2>
+          <p class="mx-auto">
+            1
+            {{ rate.code }}
+            =
+            {{ rate.mid }}
+            PLN
+          </p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Stuff</button>
           </div>
         </div>
+      </div>
       }
     </div>
   </div>
