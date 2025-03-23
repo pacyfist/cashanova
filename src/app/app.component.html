@@ -23,76 +23,22 @@
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <li><a routerLink="about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
-          <li><a>Profile</a></li>
-          <li><a>Settings</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="container mx-auto px-4 py-8">
+  <router-outlet></router-outlet>
 
-    <router-outlet></router-outlet>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (rate of this.rates(); track rate.code) {
-      <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <figure class="px-10 pt-10">
-          <div class="avatar-group -space-x-6">
-            @if (rate.code == "EUR") {
-            <div class="avatar">
-              <div class="w-24 rounded-full">
-                <img src="https://flagcdn.com/w160/eu.png" alt="EU Flag" />
-              </div>
-            </div>
-            } @else {
-            <div class="avatar">
-              <div class="w-24 rounded-full">
-                <img src="https://flagcdn.com/w160/gb.png" alt="GB Flag" />
-              </div>
-            </div>
-            }
-            <div class="avatar">
-              <div class="w-24 rounded-full">
-                <img src="https://flagcdn.com/w160/pl.png" alt="PL Flag" />
-              </div>
-            </div>
-          </div>
-        </figure>
-
-        <div class="card-body items-center text-center">
-          <h2 class="card-title text-primary">
-            {{ rate.currency | titlecase }}
-          </h2>
-          <p class="text-base-content">
-            1 {{ rate.code }} = {{ rate.mid }} PLN
-          </p>
-
-          <div class="card-actions justify-center mt-4">
-            <button class="btn btn-primary btn-outline">
-              Exchange Details
-              <fa-icon [icon]="faExchangeAlt" class="ml-2"></fa-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-      }
-    </div>
-  </div>
   <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 place-items-center">
     <nav>
       <h6 class="footer-title">Services</h6>
-      <a class="link link-hover">Branding</a>
-      <a class="link link-hover">Design</a>
-      <a class="link link-hover">Marketing</a>
-      <a class="link link-hover">Advertisement</a>
+      <a class="link link-hover" routerLink="about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a>
     </nav>
     <nav>
       <h6 class="footer-title">Company</h6>
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
-      <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
+      <a class="link link-hover" routerLink="about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a>
+
     </nav>
     <aside><img src="https://picsum.photos/200" /></aside>
   </footer>
