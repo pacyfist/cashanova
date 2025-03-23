@@ -2,8 +2,10 @@
   <div class="navbar bg-base-300 rounded-b-2xl shadow-md px-4 py-2">
     <div class="navbar-start">
       <span class="btn btn-ghost normal-case text-2xl">
-        <fa-icon [icon]="faDollarSign"></fa-icon>
-        Cashanova
+        <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <fa-icon [icon]="faDollarSign"></fa-icon>
+          Cashanova
+        </a>
       </span>
     </div>
 
@@ -20,7 +22,7 @@
           <fa-icon [icon]="faBars" size="xl"></fa-icon>
         </label>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a>Dashboard</a></li>
+          <li><a routerLink="about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
           <li><a>Profile</a></li>
           <li><a>Settings</a></li>
         </ul>

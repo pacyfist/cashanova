@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TablesService } from './nbp/services/tables.service';
 import { TitleCasePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -7,7 +7,7 @@ import { faBars, faMagnifyingGlass, faExchangeAlt, faDollarSign } from '@fortawe
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TitleCasePipe, FontAwesomeModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, TitleCasePipe, FontAwesomeModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -18,7 +18,7 @@ export class AppComponent {
   faMagnifyingGlass = faMagnifyingGlass;
   faExchangeAlt = faExchangeAlt;
   faDollarSign = faDollarSign;
-  
+
   tables = inject(TablesService);
   rates = this.tables.rates;
 }
