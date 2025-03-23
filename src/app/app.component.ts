@@ -19,7 +19,6 @@ export class AppComponent {
   faExchangeAlt = faExchangeAlt;
   faDollarSign = faDollarSign;
   
-
   tables = inject(TablesService);
   rates = this.tables.rates;
 }

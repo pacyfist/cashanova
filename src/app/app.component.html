@@ -29,6 +29,9 @@
   </div>
 
   <div class="container mx-auto px-4 py-8">
+
+    <router-outlet></router-outlet>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (rate of this.rates(); track rate.code) {
       <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -92,4 +95,3 @@
     <aside><img src="https://picsum.photos/200" /></aside>
   </footer>
 </main>
-<router-outlet />
