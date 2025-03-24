@@ -1,7 +1,8 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { TablesService } from '../../nbp/services/tables.service';
+import { TitleCasePipe } from '@angular/common';
 import { FlagsService } from '../../services/flags.service';
+import { interval, take, timer } from 'rxjs';
 
 @Component({
   selector: 'app-exchange-carousel',
@@ -15,5 +16,11 @@ export class ExchangeCarouselComponent {
 
   rates = this.tables.rates;
 
-  carousel = viewChild<ElementRef>('carousel');
+  carousel = viewChild<ElementRef<HTMLDivElement>>('carousel');
+
+  constructor() {
+    interval(1000).subscribe((i) => {
+      const element = this.carousel()?.nativeElement;
+    });
+  }
 }
