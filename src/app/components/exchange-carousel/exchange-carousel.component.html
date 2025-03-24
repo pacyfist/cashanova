@@ -1,8 +1,8 @@
-<div class="carousel my-4 max-w-full" #carousel>
+<div class="carousel carousel-start my-4 max-w-full" #carousel>
   @for (rate of this.rates(); track rate.code) {
-    <div class="carousel-item bg-base-300 mx-2 justify-center rounded-full px-8 py-4">
+    <div class="carousel-item bg-base-200 mx-2 justify-center rounded-full px-8 py-4">
       <div class="mr-2">
-        @let flagUrl = this.flags.getFlagUrl(rate.code);
+        @let flagUrl = this.flags.getFlagUrl(rate.code, '32x24');
         @if (!!flagUrl) {
           <img src="{{ flagUrl }}" />
         }

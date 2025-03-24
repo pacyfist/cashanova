@@ -39,9 +39,9 @@ export class FlagsService {
     CNY: 'CN',
   };
 
-  getFlagUrl(currency: string): string | null {
+  getFlagUrl(currency: string, size: '32x24' | 'w160'): string | null {
     if (this.mapping[currency]) {
-      return `https://flagcdn.com/32x24/${this.mapping[currency].toLowerCase()}.png`;
+      return `https://flagcdn.com/${size}/${this.mapping[currency].toLowerCase()}.png`;
     }
     return null;
   }

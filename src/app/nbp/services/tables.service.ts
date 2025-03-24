@@ -8,11 +8,30 @@ import { Table } from '../dtos/tables.dto';
 export class TablesService {
   constructor() {}
 
-  table = signal<string>('a');
+  filter = signal<null | 'today' | number | Date | [Date, Date]>(new Date('2025-03-21'));
 
-  tableResource = httpResource<Table[]>(
-    () => `https://api.nbp.pl/api/exchangerates/tables/${this.table()}/`,
-  );
+  tableResource = httpResource<Table[]>(() => {
+    const filter = this.filter();
+    console.log(filter);
+    if (filter === 'today') {
+      return 'https://api.nbp.pl/api/exchangerates/tables/a/today/';
+    } else if (typeof filter === 'number') {
+      return `https://api.nbp.pl/api/exchangerates/tables/a/last/${filter}/`;
+    } else if (filter instanceof Date) {
+      const date = filter.toISOString().split('T')[0]
+      return `https://api.nbp.pl/api/exchangerates/tables/a/${date}/`;
+    } else if (filter instanceof Array) {
+      const startDate = filter[0].toISOString().split('T')[0]
+      const endDate = filter[1].toISOString().split('T')[0]
+      return `https://api.nbp.pl/api/exchangerates/tables/a/${startDate}/${endDate}`;
+    }
 
-  rates = computed(() => this.tableResource.value()?.[0].rates);
+    return `https://api.nbp.pl/api/exchangerates/tables/a/`;
+  });
+
+  rates = computed(() => {
+    const response = this.tableResource.value();
+    console.log(response);
+    return response?.[response?.length - 1].rates ?? [];
+  });
 }
