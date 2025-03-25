@@ -11,22 +11,24 @@ import { FlagsService } from '../../services/flags.service';
   styleUrl: './exchange-carousel.component.css',
 })
 export class ExchangeCarouselComponent {
-  flags = inject(FlagsService);
-  tables = inject(TablesService);
+  readonly flags = inject(FlagsService);
+  readonly tables = inject(TablesService);
 
-  rates = this.tables.rates;
+  readonly rates = this.tables.rates;
 
-  carousel = viewChild<ElementRef<HTMLDivElement>>('carousel');
+  readonly carousel = viewChild<ElementRef<HTMLDivElement>>('carousel');
 
   constructor() {
-    // interval(1000).subscribe((i) => {
-    //   const carousel = this.carousel();
-    //   if (this.carousel()) {
-    //     const carouselElement = carousel?.nativeElement as HTMLDivElement;
-    //     const children = [...carouselElement.childNodes].filter((c) => c.nodeType == Node.ELEMENT_NODE);
-    //     const childElement = children[i % children.length] as HTMLDivElement;
-    //     carouselElement.scrollLeft = childElement.offsetLeft - childElement.clientWidth / 2.0;
-    //   }
-    // });
+    interval(1000).subscribe((i) => {
+      const carousel = this.carousel();
+
+      if (this.carousel()) {
+        const carouselElement = carousel?.nativeElement as HTMLDivElement;
+        const children = [...carouselElement.childNodes].filter((c) => c.nodeType == Node.ELEMENT_NODE);
+        const childElement = children[i % children.length] as HTMLDivElement;
+
+        carouselElement.scrollLeft = childElement.offsetLeft - carouselElement.offsetLeft;
+      }
+    });
   }
 }

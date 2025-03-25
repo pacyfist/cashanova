@@ -12,7 +12,6 @@ export class TablesService {
 
   tableResource = httpResource<Table[]>(() => {
     const filter = this.filter();
-    console.log(filter);
     if (filter === 'today') {
       return 'https://api.nbp.pl/api/exchangerates/tables/a/today/';
     } else if (typeof filter === 'number') {
@@ -31,7 +30,6 @@ export class TablesService {
 
   rates = computed(() => {
     const response = this.tableResource.value();
-    console.log(response);
     return response?.[response?.length - 1].rates ?? [];
   });
 }
