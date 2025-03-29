@@ -19,16 +19,16 @@ export class ExchangeCarouselComponent {
   readonly carousel = viewChild<ElementRef<HTMLDivElement>>('carousel');
 
   constructor() {
-    interval(1000).subscribe((i) => {
-      const carousel = this.carousel();
+    // interval(1000).subscribe((i) => {
+    //   const carousel = this.carousel();
 
-      if (this.carousel()) {
-        const carouselElement = carousel?.nativeElement as HTMLDivElement;
-        const children = [...carouselElement.childNodes].filter((c) => c.nodeType == Node.ELEMENT_NODE);
-        const childElement = children[i % children.length] as HTMLDivElement;
+    //   if (this.carousel()) {
+    //     const carouselElement = carousel?.nativeElement as HTMLDivElement;
+    //     const children = [...carouselElement.childNodes].filter((c) => c.nodeType == Node.ELEMENT_NODE);
+    //     const childElement = children[i % children.length] as HTMLDivElement;
 
-        carouselElement.scrollLeft = childElement.offsetLeft - carouselElement.offsetLeft;
-      }
-    });
+    //     carouselElement.scrollLeft = childElement.offsetLeft - carouselElement.offsetLeft;
+    //   }
+    // });
   }
 }
